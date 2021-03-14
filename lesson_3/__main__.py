@@ -18,7 +18,7 @@ def _show_vacancies(salary_min, collection):
 
     result = collection.find({
         'salary_currency': {'$eq': _SALARY_CURRENCY},
-        'salary_max': {'$gt': salary_min}
+        '$or': [{'salary_min': {'$gte': salary_min}}, {'salary_max': {'$gt': salary_min}}]
     }
     )
     for item in result:
@@ -29,8 +29,7 @@ def _save_records(records, collection):
     """Insert new record in Mongo."""
 
     for record in records:
-        if not collection.find_one({'vacancy_link': record['vacancy_link']}):
-            collection.insert_one(record)
+        collection.update(record, record, upsert=True)
 
 
 def _main():
