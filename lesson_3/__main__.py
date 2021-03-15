@@ -46,6 +46,5 @@ def _main():
     _show_vacancies(_SALARY_MIN, vacancies)
 
 
-
 if __name__ == '__main__':
     sys.exit(_main())
