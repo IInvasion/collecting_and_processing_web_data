@@ -21,13 +21,6 @@ class JobScrapper:
         self._parse_vacancy()
 
 
-    # def parse_vacancy(vacancy):
-    # """Vacancy parser."""
-    #     self.storage = []
-    #     self.storage.extend(_parse_hh(vacancy))
-    #     self.storage.extend(_parse_sj(vacancy))
-
-
     def _parse_vacancy(self):
         """Vacancy parser."""
 
