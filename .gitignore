@@ -2,3 +2,5 @@
 *.pyc
 misc.py
 .idea
+venv
+images
