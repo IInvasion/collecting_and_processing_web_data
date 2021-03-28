@@ -16,7 +16,7 @@ def process_characteristics(params):
     """Process characteristics."""
     params = [x.replace('\n', '').strip() for x in params]
 
-    return dict(zip(params[1::2], params[2::2]))
+    return dict(zip(params[0::2], params[1::2]))
 
 
 class LeruamerlenparserItem(scrapy.Item):
