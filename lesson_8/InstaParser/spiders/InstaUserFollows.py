@@ -94,8 +94,8 @@ class InstauserfollowsSpider(scrapy.Spider):
             yield InstaparserItem(
                 user_name=username,
                 user_id=user_id,
-                user_following=True,
-                user_follower=False,
+                is_following=True,
+                is_follower=False,
                 user_follow_id=following.get('node').get('id'),
                 user_follow_name=following.get('node').get('username'),
                 user_follow_photo=following.get('node').get('profile_pic_url')
@@ -123,8 +123,8 @@ class InstauserfollowsSpider(scrapy.Spider):
             yield InstaparserItem(
                 user_name=username,
                 user_id=user_id,
-                user_following=False,
-                user_follower=True,
+                is_following=False,
+                is_follower=True,
                 user_follow_id=follower.get('node').get('id'),
                 user_follow_name=follower.get('node').get('username'),
                 user_follow_photo=follower.get('node').get('profile_pic_url')

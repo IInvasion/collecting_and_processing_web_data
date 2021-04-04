@@ -20,7 +20,11 @@ class InstaparserPipeline:
 
     def process_item(self, item, spider):
         """Process item."""
-        collection = self.mongo_base[spider.name]
+        if item['is_follower']:
+            collection = self.mongo_base[f'{item["user_name"]}_followers']
+        else:
+            collection = self.mongo_base[f'{item["user_name"]}_followings']
+
         collection.update_one(item, {'$setOnInsert': item}, upsert=True)
 
         return item
